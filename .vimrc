@@ -38,7 +38,7 @@ let g:indentLine_conceallevel = 0
 let g:ycm_server_python_interpreter = '/usr/bin/python'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'monokai'
+let g:airline_theme = 'molokai'
 let g:HardMode_level = 'wannabe'
 
 "syntastics
