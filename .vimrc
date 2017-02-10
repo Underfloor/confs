@@ -18,6 +18,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'sickill/vim-monokai'
 Plugin 'wikitopian/hardmode'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 call vundle#end()
 
@@ -57,6 +59,10 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_javascript_checkers = ['jshint', 'jsonlint']
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 let g:syntastic_typescript_tsc_args = '--target ES6'
+
+"CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 "nerdTree
 nnoremap <silent> <Leader>e :NERDTreeFind<CR>
