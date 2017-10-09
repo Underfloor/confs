@@ -73,4 +73,4 @@ let NERDTreeQuitOnOpen = 1
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 autocmd vimenter,bufnewfile,bufreadpost * silent! call HardMode()
-autocmd FileType typescript setlocal completeopt+=menu,preview
+setlocal completeopt+=menu,preview
