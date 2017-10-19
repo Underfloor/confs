@@ -1,40 +1,39 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
+call plug#begin('~/.vim/plugged')
 
-call vundle#begin()
+" General plugins
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
+Plug 'sickill/vim-monokai'
+Plug 'wikitopian/hardmode'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-syntastic/syntastic'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'Yggdroot/indentLine'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Quramy/tsuquyomi'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'sickill/vim-monokai'
-Plugin 'wikitopian/hardmode'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'ctrlpvim/ctrlp.vim'
+" Typescript plugins
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
 
-call vundle#end()
+" Twig plugins
+Plug 'nelsyeung/twig.vim', { 'for' : ['html', 'twig', 'html.twig.js.css'] }
+
+call plug#end()
 
 syntax on
 filetype indent plugin on
 set relativenumber
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 set autoindent
 set cursorline
 colo monokai
-set colorcolumn=80
-
-let g:indentLine_conceallevel = 0
+set colorcolumn=120
 
 "Lets
 let g:ycm_server_python_interpreter = '/usr/bin/python'
@@ -58,11 +57,7 @@ let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_javascript_checkers = ['jshint', 'jsonlint']
 let g:syntastic_typescript_checkers = ['tsuquyomi']
-let g:syntastic_typescript_tsc_args = '--target ES6'
-
-"CtrlP
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+let g:syntastic_typescript_tsc_args = '--target ES5'
 
 "nerdTree
 nnoremap <silent> <Leader>e :NERDTreeFind<CR>
@@ -70,6 +65,11 @@ nnoremap <Leader>f :NERDTreeToggle<Enter>
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeQuitOnOpen = 1
 
+" tsuquyomi
+let g:tsuquyomi_completion_detail = 1
+let g:tsuquyomi_disable_quickfix = 1
+
+"HardMode
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 autocmd vimenter,bufnewfile,bufreadpost * silent! call HardMode()
