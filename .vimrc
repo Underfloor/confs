@@ -25,6 +25,7 @@ Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
 
 " Twig plugins
 Plug 'nelsyeung/twig.vim', { 'for' : ['html', 'twig', 'html.twig.js.css'] }
+Plug 'chrisbra/Colorizer', { 'for' : ['html', 'css', 'less', 'twig', 'html.twig.js.css'] }
 
 call plug#end()
 
