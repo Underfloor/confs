@@ -4,8 +4,6 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 " General plugins
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'sickill/vim-monokai'
 Plug 'wikitopian/hardmode'
@@ -14,6 +12,12 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
+
+" Files plugins
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Typescript plugins
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
@@ -65,6 +69,10 @@ nnoremap <Leader>f :NERDTreeToggle<Enter>
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeQuitOnOpen = 1
 
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+
 " tsuquyomi
 let g:tsuquyomi_completion_detail = 1
 let g:tsuquyomi_disable_quickfix = 1
@@ -72,5 +80,10 @@ let g:tsuquyomi_disable_quickfix = 1
 "HardMode
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
+"CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+autocmd VimEnter * NERDTree
 autocmd vimenter,bufnewfile,bufreadpost * silent! call HardMode()
 setlocal completeopt+=menu,preview
