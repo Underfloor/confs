@@ -67,7 +67,7 @@ let g:syntastic_typescript_tsc_args = '--target ES5'
 nnoremap <silent> <Leader>e :NERDTreeFind<CR>
 nnoremap <Leader>f :NERDTreeToggle<Enter>
 let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeQuitOnOpen = 1
+let NERDTreeQuitOnOpen = 0
 
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
