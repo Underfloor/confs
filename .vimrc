@@ -85,6 +85,6 @@ nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-autocmd VimEnter * NERDTree
+autocmd VimEnter * NERDTree | wincmd p
 autocmd vimenter,bufnewfile,bufreadpost * silent! call HardMode()
 setlocal completeopt+=menu,preview
