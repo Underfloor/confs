@@ -27,6 +27,9 @@ Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
 Plug 'nelsyeung/twig.vim', { 'for' : ['html', 'twig', 'html.twig.js.css'] }
 Plug 'chrisbra/Colorizer', { 'for' : ['html', 'css', 'less', 'twig', 'html.twig.js.css'] }
 
+" Kerboscript plugins
+Plug 'yump/vim-kerboscript', { 'for': 'kerboscript' }
+
 call plug#end()
 
 syntax on
