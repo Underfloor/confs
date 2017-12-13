@@ -72,6 +72,7 @@ nnoremap <silent> <Leader>e :NERDTreeFind<CR>
 nnoremap <Leader>f :NERDTreeToggle<Enter>
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeQuitOnOpen = 0
+let NERDTreeShowLineNumbers = 1
 
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
