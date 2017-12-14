@@ -34,7 +34,6 @@ call plug#end()
 
 syntax on
 filetype indent plugin on
-set relativenumber
 set shiftwidth=4
 set softtabstop=4
 set expandtab
@@ -42,6 +41,14 @@ set autoindent
 set cursorline
 colo monokai
 set colorcolumn=120
+
+set number relativenumber
+
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+augroup END
 
 "Lets
 let g:ycm_server_python_interpreter = '/usr/bin/python'
