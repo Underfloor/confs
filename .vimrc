@@ -20,6 +20,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " Typescript plugins
+Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'typescript'] }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
 
@@ -95,6 +96,15 @@ nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 "CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+"JsDoc
+let g:jsdoc_allow_input_prompt = 1
+let g:jsdoc_input_description = 1
+let g:jsdoc_access_descriptions = 1
+let g:jsdoc_underscore_private = 1
+let g:jsdoc_enable_es6 = 1
+
+nmap <silent> <C-l> <Plug>(jsdoc)
 
 autocmd VimEnter * NERDTree | wincmd p
 autocmd vimenter,bufnewfile,bufreadpost * silent! call HardMode()
