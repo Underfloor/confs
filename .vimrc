@@ -42,6 +42,7 @@ set autoindent
 set cursorline
 colo monokai
 set colorcolumn=120
+set scrolloff=5
 
 set number relativenumber
 
