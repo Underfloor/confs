@@ -51,6 +51,9 @@ augroup numbertoggle
     autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
 augroup END
 
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+
 "Lets
 let g:ycm_server_python_interpreter = '/usr/bin/python'
 let g:airline#extensions#tabline#enabled = 1
