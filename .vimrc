@@ -77,7 +77,7 @@ let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_javascript_checkers = ['jshint', 'jsonlint']
 let g:syntastic_typescript_checkers = ['tsuquyomi']
-let g:syntastic_typescript_tsc_args = '--target ES5'
+let g:syntastic_typescript_tsc_args = '--target ES6'
 
 "nerdTree
 nnoremap <silent> <Leader>e :NERDTreeFind<CR>
