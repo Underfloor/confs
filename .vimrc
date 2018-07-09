@@ -1,40 +1,59 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
+call plug#begin('~/.vim/plugged')
 
-call vundle#begin()
+" General plugins
+Plug 'airblade/vim-gitgutter'
+Plug 'sickill/vim-monokai'
+Plug 'wikitopian/hardmode'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-syntastic/syntastic'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer --clang-completer' }
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'Yggdroot/indentLine'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Quramy/tsuquyomi'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'sickill/vim-monokai'
-Plugin 'wikitopian/hardmode'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'ctrlpvim/ctrlp.vim'
+" Files plugins
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ctrlpvim/ctrlp.vim'
 
-call vundle#end()
+" Typescript plugins
+Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'typescript'] }
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
+
+" Twig plugins
+Plug 'nelsyeung/twig.vim', { 'for' : ['html', 'twig', 'html.twig.js.css'] }
+Plug 'chrisbra/Colorizer', { 'for' : ['html', 'css', 'less', 'twig', 'html.twig.js.css'] }
+
+" Kerboscript plugins
+Plug 'yump/vim-kerboscript', { 'for': 'kerboscript' }
+
+call plug#end()
 
 syntax on
 filetype indent plugin on
-set relativenumber
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 set autoindent
 set cursorline
 colo monokai
-set colorcolumn=80
+set colorcolumn=120
+set scrolloff=5
 
-let g:indentLine_conceallevel = 0
+set number relativenumber
+
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+augroup END
+
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
 
 "Lets
 let g:ycm_server_python_interpreter = '/usr/bin/python'
@@ -60,17 +79,37 @@ let g:syntastic_javascript_checkers = ['jshint', 'jsonlint']
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 let g:syntastic_typescript_tsc_args = '--target ES6'
 
-"CtrlP
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
 "nerdTree
 nnoremap <silent> <Leader>e :NERDTreeFind<CR>
 nnoremap <Leader>f :NERDTreeToggle<Enter>
 let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeQuitOnOpen = 1
+let NERDTreeQuitOnOpen = 0
+let NERDTreeShowLineNumbers = 1
 
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+
+" tsuquyomi
+let g:tsuquyomi_completion_detail = 1
+let g:tsuquyomi_disable_quickfix = 1
+
+"HardMode
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
+"CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+"JsDoc
+let g:jsdoc_allow_input_prompt = 1
+let g:jsdoc_input_description = 1
+let g:jsdoc_access_descriptions = 1
+let g:jsdoc_underscore_private = 1
+let g:jsdoc_enable_es6 = 1
+
+nmap <silent> <C-l> <Plug>(jsdoc)
+
+autocmd VimEnter * NERDTree | wincmd p
 autocmd vimenter,bufnewfile,bufreadpost * silent! call HardMode()
-autocmd FileType typescript setlocal completeopt+=menu,preview
+setlocal completeopt+=menu,preview
